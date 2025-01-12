@@ -27,9 +27,10 @@ jobs:
     container: nimlang/nim
     steps:
       - uses: actions/checkout@v4
-      - name: Build page
-        run: |
-          git config --global --add safe.directory *
+      - name: Install nim
+        uses: iffy/install-nim@v4.5.0
+      - name: Run wiiiikiiii
+        run:
           nimble run
       - name: Setup Pages
         id: pages
