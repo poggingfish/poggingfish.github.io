@@ -23,6 +23,7 @@ concurrency:
 jobs:
   # Build job
   build:
+    runs-on: ubuntu-latest
     container: nimlang/nim
     steps:
       - uses: actions/checkout@v4
