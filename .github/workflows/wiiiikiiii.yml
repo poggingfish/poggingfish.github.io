@@ -27,6 +27,9 @@ jobs:
     container: nimlang/nim
     steps:
       - uses: actions/checkout@v4
+      - name: Fix git config
+        run:
+          git config --global --add safe.directory "*"
       - name: Run wiiiikiiii
         run:
           nimble run
