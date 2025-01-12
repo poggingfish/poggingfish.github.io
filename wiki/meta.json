@@ -1,8 +1,14 @@
 {
-    "about.md": {
-        "tags": ["misc", "meta"]
+    "about.html": {
+        "tags": ["misc", "meta"],
+        "creationdate": 20250111
     },
-    "index.md": {
-        "tags": ["misc", "meta"]
+    "index.html": {
+        "tags": ["misc", "meta"],
+        "creationdate": 20250111
+    },
+    "blogs/20250112.html": {
+        "tags": ["blog"],
+        "creationdate": 20250112
     }
 }
