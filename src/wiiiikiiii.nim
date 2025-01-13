@@ -59,9 +59,13 @@ proc main() =
   var index = newSeq[(string, string, string)]()
   var tags = initTable[string, string]()
   for i in walkDirRec(Path("wiki/pages")):
-    let basePath = Path(string(i).split("/")[2..^1].join("/")).changeFileExt(".html")
+    let filePath = Path(string(i).split("/")[2..^1].join("/"))
     for dir in string(i).split("/")[2..^2]:
       createDir(Path("generated/" & dir))
+    if not string(filePath).endsWith(".md"):
+      writeFile(fmt"generated/{string(filePath)}", readFile(fmt"wiki/pages/{string(filePath)}"))
+      continue
+    let basePath = filePath.changeFileExt(".html")
     let metadata = meta{string(basePath)}
     let original = readFile(string(i))
     let name = original.split("\n")[0].replace("#", "")
