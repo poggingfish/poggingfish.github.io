@@ -30,5 +30,31 @@
     <a href="https://fonts.google.com/specimen/Open+Sans">Font</a>
     <p>(Fonts are downloaded from the Google Fonts CDN.)</p>
     <p>__varDonate__var</p>
+    <p id="nojs">We have detected that your browser does not support Javascript. Everything will still work the same, but the site may be slightly slower.</p>
 </body>
+<script>
+    document.getElementById("nojs").innerText = "Javascript is used to preload pages whenever you hover over them."
+    cached_pages = {}
+    elems = Array.from(document.getElementsByTagName("a"))
+    elems.forEach(element => {
+        element.addEventListener("mouseover", () => {
+            if (element.href != null && element.href.includes(document.domain) && !cached_pages.hasOwnProperty(element.href)) {
+                fetch(element.href).then((resp) => {
+                    resp.text().then((content => {
+                        cached_pages[element.href] = content
+                    }))
+                })
+            }
+        })
+        element.addEventListener("click", (ev) => {
+            if (cached_pages.hasOwnProperty(element.href)) {
+                ev.preventDefault()
+                window.history.pushState({}, '', element.href);
+                document.open()
+                document.write(cached_pages[element.href])
+                document.close()
+            }
+        })
+    });
+</script>
 </html>
