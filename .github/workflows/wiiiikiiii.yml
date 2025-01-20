@@ -24,15 +24,15 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    container: nimlang/nim
     steps:
       - uses: actions/checkout@v4
-      - name: Fix git config
+      - name: Install wiki engine
         run:
-          git config --global --add safe.directory "*"
+          wget https://github.com/poggingfish/poggingfish.github.io/releases/download/wiki/wiiiikiiii
+          chmod +x wiiiikiiii
       - name: Run wiiiikiiii
         run:
-          nimble run
+          ./wiiiikiiii
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5

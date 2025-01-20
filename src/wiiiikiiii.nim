@@ -12,12 +12,13 @@ const donation = "<p><a href='https://bsky.app/profile/pogging.fish'>Follow me o
 const tmpl = readFile("wiki/templates/base.html")
 let meta = parseFile("wiki/meta.json")
 
-proc applyTemplate(page: string, tags: string = "", date: string = "(meta pages have no date)"): string =
+proc applyTemplate(page: string, tags: string = "", date: string = "(meta pages have no date)", name = ""): string =
   return multireplace(tmpl,
     [("__varHtmlpage__var", page),
      ("__varTags__var", tags),
      ("__varCreationdate__var", date),
      ("__varWikiName__var", pageName),
+     ("__varPageName__var", name),
      ("__varDonate__var", donation)
     ]
   )
@@ -28,7 +29,7 @@ proc getPostDate(i: string): int =
     return 19700101
   else:
     return d.getInt()
-  
+
 proc customCmp(i: (string, string, string), i2: (string, string, string)): int =
   return cmp(
     getPostDate(i[0]),
@@ -68,7 +69,7 @@ proc main() =
     let basePath = filePath.changeFileExt(".html")
     let metadata = meta{string(basePath)}
     let original = readFile(string(i))
-    let name = original.split("\n")[0].replace("#", "")
+    let name = original.split("\n")[0].replace("#", "").strip()
     var tagstring = ""
     var first = true
     for tag_j in getPostTags(string(basePath)):
@@ -82,7 +83,7 @@ proc main() =
     let path = "generated/" & string(basePath)
     index.add((string(basePath), name, tagstring))
     let mdhtml = markdown(original)
-    writeFile(string(path), applyTemplate(mdhtml, fmt"<p>{tagstring}</p>", fmt"{intToDate(getPostDate(string(basePath)))}"))
+    writeFile(string(path), applyTemplate(mdhtml, fmt"<p>{tagstring}</p>", fmt"{intToDate(getPostDate(string(basePath)))}", name))
   # Create index page
   var indexhtml = "<h2>Looking for something specific? Do CTRL+F to find it!</h2>"
   indexhtml &= "tag listing: "
@@ -96,8 +97,8 @@ proc main() =
     for tag in getPostTags(i[0]):
       tags[tag.getStr()] &= createLink(i)
   for i in tags.keys():
-    writeFile(fmt"generated/tags/{i}.html", applyTemplate(tags[i]))
-  writeFile("generated/indexpage.html", applyTemplate(indexhtml))
+    writeFile(fmt"generated/tags/{i}.html", applyTemplate(tags[i], name=i))
+  writeFile("generated/indexpage.html", applyTemplate(indexhtml, name="Index"))
 
 
 when isMainModule:
