@@ -28,8 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install wiki engine
         run:
-          wget https://github.com/poggingfish/poggingfish.github.io/releases/download/wiki/wiiiikiiii
-          chmod +x wiiiikiiii
+          wget https://github.com/poggingfish/poggingfish.github.io/releases/download/wiki/wiiiikiiii && chmod +x wiiiikiiii
       - name: Run wiiiikiiii
         run:
           ./wiiiikiiii
