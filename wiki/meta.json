@@ -10,5 +10,9 @@
     "blogs/20250112.html": {
         "tags": ["blog", "dev"],
         "creationdate": 20250112
+    },
+    "blogs/openai-bias.html": {
+        "tags": ["blog", "politics"],
+        "creationdate": 20250120
     }
 }
