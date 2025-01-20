@@ -24,9 +24,11 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    container: nimlang/nim
     steps:
       - uses: actions/checkout@v4
+      - name: Install requirements
+        run:
+          sudo apt install libpcre
       - name: Install wiki engine
         run:
           wget https://github.com/poggingfish/poggingfish.github.io/releases/download/wiki/wiiiikiiii && chmod +x wiiiikiiii
