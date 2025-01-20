@@ -8,12 +8,12 @@ import std/tables
 import std/algorithm
 
 const pageName = "pogging.fish"
-const donation = ""
+const donation = "<p><a href='https://bsky.app/profile/pogging.fish'>Follow me on Bluesky</a></p>"
 const tmpl = readFile("wiki/templates/base.html")
 let meta = parseFile("wiki/meta.json")
 
 proc applyTemplate(page: string, tags: string = "", date: string = "(meta pages have no date)"): string =
-  return multireplace(tmpl, 
+  return multireplace(tmpl,
     [("__varHtmlpage__var", page),
      ("__varTags__var", tags),
      ("__varCreationdate__var", date),
