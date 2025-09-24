@@ -10,11 +10,6 @@ body {
     font-variation-settings: "wdth" 100;
 }
 
-@font-face {
-    font-family: Archivo;
-    src: url(archivo.ttf);
-}
-
 .title {
     text-align: left;
     font-size: medium;
@@ -31,8 +26,13 @@ hr {
 }
 
 a {
-    color: rgb(155 155 211);
+    color: rgb(80, 80, 220);
+    text-decoration: none;
     cursor: pointer;
+}
+
+a:hover {
+    color: rgb(61, 61, 183)
 }
 
 .header {
@@ -42,4 +42,8 @@ a {
 
 .content {
     margin: 1%;
+}
+
+.content img {
+    margin-right: 1%;
 }

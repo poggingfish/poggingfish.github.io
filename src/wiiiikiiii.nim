@@ -88,8 +88,15 @@ proc main() =
   var indexhtml = "<h2>Looking for something specific? Do CTRL+F to find it!</h2>"
   indexhtml &= "tag listing: "
   index.sort(customCmp, SortOrder.Descending)
+  var first = true
+  var comma = ""
   for i in tags.keys():
-    indexhtml &= fmt"<a href=/tags/{i}.html>{i}</a>&MediumSpace;"
+    if first:
+      comma = ""
+      first = false
+    else:
+      comma = ",&MediumSpace;"
+    indexhtml &= fmt"{comma}<a href=/tags/{i}.html>{i}</a>"
     tags[i] &= fmt"<h1>Listing for tag '{i}'</h1>"
   indexhtml &= "<p>(newest posts are first.)</p>"
   for i in index:

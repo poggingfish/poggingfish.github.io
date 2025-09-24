@@ -10,5 +10,5 @@ bin           = @["wiiiikiiii"]
 
 # Dependencies
 
-requires "nim >= 2.3.1"
+requires "nim >= 2.2.4"
 requires "markdown >= 0.8.0"
