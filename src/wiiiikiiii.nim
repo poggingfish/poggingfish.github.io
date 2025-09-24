@@ -41,7 +41,7 @@ proc intToDate(i: int): string =
   return fmt"{s[0..3]}-{s[4..5]}-{s[6..7]}"
 
 proc createLink(i: (string, string, string)): string =
-  return fmt"<p><a href=/{i[0]}>{i[1]}</a> on {intToDate(getPostDate(i[0]))} <small>&ThickSpace;{i[2]}</small><p>"
+  return fmt"<p><a href=/{i[0]}>{i[1]}</a> on {intToDate(getPostDate(i[0]))} <small>&ThickSpace;{i[2]}</small></p>"
 
 proc getPostTags(i: string): JsonNode =
   let t = meta{i}{"tags"}
