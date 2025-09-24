@@ -31,7 +31,7 @@ jobs:
           sudo apt install libpcre3
       - name: Install wiki engine
         run:
-          wget https://github.com/poggingfish/poggingfish.github.io/releases/download/wiki/wiiiikiiii && chmod +x wiiiikiiii
+          wget https://github.com/poggingfish/poggingfish.github.io/releases/latest/download/wiiiikiiii && chmod +x wiiiikiiii
       - name: Run wiiiikiiii
         run:
           ./wiiiikiiii
