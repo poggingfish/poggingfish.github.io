@@ -7,8 +7,8 @@ import std/json
 import std/tables
 import std/algorithm
 
-const pageName = "pogging.fish"
-const donation = "<p><a href='https://bsky.app/profile/pogging.fish'>Follow me on Bluesky</a></p>"
+const pageName = "salmon.tube"
+const donation = "<p><a href='https://bsky.app/profile/salmon.tube'>follew me on blewskuy</a></p>"
 const tmpl = readFile("wiki/templates/base.html")
 let meta = parseFile("wiki/meta.json")
 

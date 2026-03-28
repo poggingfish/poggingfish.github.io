@@ -1,9 +1,13 @@
-# About pogging.fish
+# about paeg
 
-## Why?
-I made this website to share knowledge in an open and accesible way without ads or paywalls.
+why do u wanna know about me!!
 
-## How?
-This wiki is hacked together using the Nim language. you can see the source code [here](https://github.com/poggingfish/poggingfish.github.io/tree/goodbranchname)
+well, i guess ur here now..
 
-I also use Github Pages & Github Actions for hosting as it makes things easy and free.
+i am luna,, uh i like vocaloid and stuff, especialy miku and teto.
+
+i poist random stuff on bluesky which is fun! uh i like video games
+
+i also like programming and linux, i use bluefin its pretty decent. i know c++ and python and like alot of others.
+
+i dojnt know what else to put BYE :3 :3 :3 :3 :3 :3 :3

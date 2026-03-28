@@ -1,65 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/base.css">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/base.css" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
     <title>__varPageName__var - __varWikiName__var</title>
     <meta content="__varPageName__var" property="og:title" />
-    <meta content="Read '__varPageName__var' on pogging.fish!" property="og:description" />
+    <meta
+      content="Read '__varPageName__var' on __varWikiName__var!"
+      property="og:description"
+    />
     <meta content="/img/fish.png" property="og:image" />
     <meta content="#494C4F" data-react-helmet="true" name="theme-color" />
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="header">
-        <h1 class="title name">
-            <a href="/">__varWikiName__var</a>
-        </h1>
-        <h1 class="title">
-            <a href="/about.html">about</a>
-        </h1>
-        <h1 class="title">
-            <a href="/indexpage.html">index</a>
-        </h1>
+      <h1 class="title name">
+        <a href="/">__varWikiName__var</a>
+      </h1>
+      <h1 class="title">
+        <a href="/about.html">about</a>
+      </h1>
+      <h1 class="title">
+        <a href="/indexpage.html">index</a>
+      </h1>
     </nav>
-    <hr>
+    <hr />
     <span class="content">
-        <p>Posted on __varCreationdate__var</p>
-        __varTags__var
-        __varHtmlpage__var
+      <p>Posted on __varCreationdate__var</p>
+      __varTags__var __varHtmlpage__var
     </span>
-    <hr>
-    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://pogging.fish">pogging.fish</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
+    <hr />
+    <p
+      xmlns:cc="http://creativecommons.org/ns#"
+      xmlns:dct="http://purl.org/dc/terms/"
+    >
+      <a property="dct:title" rel="cc:attributionURL" href="/"
+        >__varWikiName__var</a
+      >
+      is licensed under
+      <a
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
+        target="_blank"
+        rel="license noopener noreferrer"
+        style="display: inline-block"
+        >CC BY-NC-SA 4.0<img
+          style="
+            height: 22px !important;
+            margin-left: 3px;
+            vertical-align: text-bottom;
+          "
+          src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+          alt="" /><img
+          style="
+            height: 22px !important;
+            margin-left: 3px;
+            vertical-align: text-bottom;
+          "
+          src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+          alt="" /><img
+          style="
+            height: 22px !important;
+            margin-left: 3px;
+            vertical-align: text-bottom;
+          "
+          src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"
+          alt="" /><img
+          style="
+            height: 22px !important;
+            margin-left: 3px;
+            vertical-align: text-bottom;
+          "
+          src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"
+          alt=""
+      /></a>
+    </p>
     <a href="https://fonts.google.com/specimen/Open+Sans">Font</a>
-    <p>(Fonts are downloaded from the Google Fonts CDN.)</p>
     <p>__varDonate__var</p>
-    <p id="nojs">We have detected that your browser does not support Javascript. Everything will still work the same, but the site may be slightly slower.</p>
-</body>
-<script>
-    document.getElementById("nojs").innerText = "Javascript is used to preload pages whenever you hover over them."
-    cached_pages = {}
-    elems = Array.from(document.getElementsByTagName("a"))
-    elems.forEach(element => {
-        element.addEventListener("mouseover", () => {
-            if (element.href != null && element.href.includes(document.domain) && !cached_pages.hasOwnProperty(element.href)) {
-                fetch(element.href).then((resp) => {
-                    resp.text().then((content => {
-                        cached_pages[element.href] = content
-                    }))
-                })
-            }
-        })
-        element.addEventListener("click", (ev) => {
-            if (cached_pages.hasOwnProperty(element.href)) {
-                ev.preventDefault()
-                window.history.pushState({}, '', element.href);
-                document.open()
-                document.write(cached_pages[element.href])
-                document.close()
-            }
-        })
+  </body>
+  <script>
+    cached_pages = {};
+    elems = Array.from(document.getElementsByTagName("a"));
+    elems.forEach((element) => {
+      element.addEventListener("mouseover", () => {
+        if (
+          element.href != null &&
+          element.href.includes(document.domain) &&
+          !cached_pages.hasOwnProperty(element.href)
+        ) {
+          fetch(element.href).then((resp) => {
+            resp.text().then((content) => {
+              cached_pages[element.href] = content;
+            });
+          });
+        }
+      });
+      element.addEventListener("click", (ev) => {
+        if (cached_pages.hasOwnProperty(element.href)) {
+          ev.preventDefault();
+          window.history.pushState({}, "", element.href);
+          document.open();
+          document.write(cached_pages[element.href]);
+          document.close();
+        }
+      });
     });
-</script>
+  </script>
 </html>
